@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b10">
+  <meta name="description" content="Выбирайте сеанс и бронируйте места на кинопремьеру.">
+  <title>CINEMA — Билеты на премьеру</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#home"><span>✦</span> CINEMA</a>
+
+    <nav class="nav">
+      <a href="#home" data-i18n="home">Главная</a>
+      <a href="#movie" data-i18n="about">О фильме</a>
+      <a href="#sessions" data-i18n="sessions">Сеансы</a>
+      <a href="#booking" data-i18n="tickets">Билеты</a>
+    </nav>
+
+    <select id="languageSelect" aria-label="Выбор языка">
+      <option value="ky">🇰🇬 Кыргызча</option>
+      <option value="ru" selected>🇷🇺 Русский</option>
+    </select>
+
+    <a class="header-button" href="#sessions">
+      <span data-i18n="buyTicket">Купить билет</span> <span>↗</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-art" aria-hidden="true">
+        <div class="planet"></div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="hero-light"></div>
+        <div class="poster-label">EXCLUSIVE PREMIERE</div>
+        <div class="poster-number">01</div>
+      </div>
+
+      <div class="hero-content">
+        <div class="eyebrow"><span class="live-dot"></span> <span data-i18n="premiere">БОЛЬШАЯ ПРЕМЬЕРА 2026</span></div>
+        <h1 data-i18n="heroTitle">ПОСЛЕДНИЙ<br><span>ГОРИЗОНТ</span></h1>
+        <p class="hero-description" data-i18n="heroDescription">
+          Когда исчезает свет, начинается самое важное путешествие.
+          Откройте для себя историю, которая изменит всё.
+        </p>
+
+        <div class="movie-meta">
+          <span data-i18n="genre">Фантастика</span>
+          <span>·</span>
+          <span data-i18n="duration">2 ч 10 мин</span>
+          <span>·</span>
+          <span>16+</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#sessions" class="button button-primary"><span data-i18n="chooseSession">Выбрать сеанс</span> <span>→</span></a>
+          <a href="#movie" class="button button-secondary" data-i18n="about">О фильме</a>
+        </div>
+
+        <div class="hero-note">
+          <span>✦</span> <span data-i18n="heroNote">Премьера, которую стоит увидеть на большом экране</span>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <span data-i18n="cinemaTag">НЕЗАБЫВАЕМОЕ КИНО</span>
+        <span>01 / 03</span>
+      </div>
+    </section>
+
+    <section class="section movie-section" id="movie">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow" data-i18n="discover">ОТКРОЙТЕ ИСТОРИЮ</div>
+          <h2><span data-i18n="movieOfWeek">Фильм недели</span><span class="accent">.</span></h2>
+        </div>
+        <span class="section-index" data-i18n="filmIndex">01 — ФИЛЬМ</span>
+      </div>
+
+      <div class="movie-card">
+        <div class="movie-cover">
+          <div class="cover-stars">✦ &nbsp; ✧ &nbsp; ✦</div>
+          <div class="cover-title" data-i18n="movieTitle">ПОСЛЕДНИЙ<br>ГОРИЗОНТ</div>
+          <div class="cover-subtitle">THE LAST HORIZON</div>
+          <div class="cover-bottom">A JOURNEY BEYOND THE STARS</div>
+        </div>
+
+        <div class="movie-info">
+          <span class="pill" data-i18n="premiereLabel">ПРЕМЬЕРА</span>
+          <h3 data-i18n="movieName">Последний горизонт</h3>
+          <p class="movie-text" data-i18n="movieDescription">
+            В далёком будущем команда исследователей отправляется
+            за пределы известной галактики. Им предстоит разгадать
+            тайну сигнала, способного изменить судьбу человечества.
+          </p>
+
+          <div class="info-grid">
+            <div><span data-i18n="genreLabel">Жанр</span><strong data-i18n="genreValue">Фантастика, приключения</strong></div>
+            <div><span data-i18n="durationLabel">Продолжительность</span><strong data-i18n="durationValue">130 минут</strong></div>
+            <div><span data-i18n="ageLabel">Возраст</span><strong>16+</strong></div>
+            <div><span data-i18n="formatLabel">Формат</span><strong>2D · 3D · IMAX</strong></div>
+          </div>
+
+          <a href="#sessions" class="text-link"><span data-i18n="chooseTime">Выбрать время просмотра</span> <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sessions-section" id="sessions">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow" data-i18n="evening">ВАШ ВЕЧЕР НАЧИНАЕТСЯ ЗДЕСЬ</div>
+          <h2><span data-i18n="chooseSession">Выберите сеанс</span><span class="accent">.</span></h2>
+        </div>
+        <span class="section-index" data-i18n="scheduleIndex">02 — РАСПИСАНИЕ</span>
+      </div>
+
+      <div class="session-panel">
+        <div class="field-label" data-i18n="viewingDate">Дата просмотра</div>
+        <div class="date-list" id="dateList" aria-label="Выберите дату"></div>
+
+        <div class="session-divider"></div>
+
+        <div class="session-topline">
+          <div class="field-label" data-i18n="timeFormat">Время и формат</div>
+          <span class="muted" data-i18n="cinemaHall">Кинотеатр CINEMA · Зал № 1</span>
+        </div>
+
+        <div class="time-list" id="timeList" aria-label="Выберите сеанс"></div>
+        <p class="session-hint" id="sessionHint"></p>
+      </div>
+    </section>
+
+    <section class="section booking-section" id="booking">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow" data-i18n="idealSeat">ВАШЕ ИДЕАЛЬНОЕ МЕСТО</div>
+          <h2><span data-i18n="chooseSeats">Выберите места</span><span class="accent">.</span></h2>
+        </div>
+        <span class="section-index" data-i18n="bookingIndex">03 — БРОНИРОВАНИЕ</span>
+      </div>
+
+      <div class="booking-layout">
+        <div class="seat-panel">
+          <div class="screen-wrap">
+            <div class="screen-glow"></div>
+            <div class="screen-shape"></div>
+            <span data-i18n="screen">ЭКРАН</span>
+          </div>
+
+          <div class="seat-legend">
+            <span><i class="legend-seat free"></i> <span data-i18n="free">Свободно</span></span>
+            <span><i class="legend-seat chosen"></i> <span data-i18n="chosen">Выбрано</span></span>
+            <span><i class="legend-seat occupied"></i> <span data-i18n="occupied">Занято</span></span>
+            <span><i class="legend-seat vip"></i> VIP</span>
+          </div>
+
+          <div class="seat-map" id="seatMap" aria-label="Схема кинозала"></div>
+          <div class="row-label" data-i18n="seatNumbers">НОМЕРА МЕСТ УКАЗАНЫ НА КРЕСЛАХ</div>
+        </div>
+
+        <aside class="order-panel">
+          <div class="order-top">
+            <span class="pill" data-i18n="yourOrder">ВАШ ЗАКАЗ</span>
+            <span class="order-icon">✦</span>
+          </div>
+
+          <h3 data-i18n="movieName">Последний горизонт</h3>
+          <p class="order-subtitle" data-i18n="premiereScreen">Премьера · Большой экран</p>
+
+          <div class="order-detail">
+            <span data-i18n="dateLabel">Дата</span>
+            <strong id="summaryDate">—</strong>
+          </div>
+          <div class="order-detail">
+            <span data-i18n="timeLabel">Сеанс</span>
+            <strong id="summaryTime">—</strong>
+          </div>
+          <div class="order-detail">
+            <span data-i18n="formatLabel">Формат</span>
+            <strong id="summaryFormat">—</strong>
+          </div>
+          <div class="order-detail seats-detail">
+            <span data-i18n="yourSeats">Ваши места</span>
+            <strong id="summarySeats">Не выбраны</strong>
+          </div>
+
+          <div class="order-total">
+            <span data-i18n="total">Итого к оплате</span>
+            <strong id="totalPrice">0 ₽</strong>
+          </div>
+
+          <button class="button button-primary buy-button" id="buyButton">
+            <span data-i18n="bookTickets">Забронировать билеты</span> <span>→</span>
+          </button>
+
+          <p class="order-footnote" data-i18n="demoNote">
+            Демо-режим: оплата не списывается. Заказ будет создан только в рамках этого браузера.
+          </p>
+          <p class="order-message" id="orderMessage" role="status"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="bottom-banner">
+      <div>
+        <div class="eyebrow" data-i18n="emotions">СВЕТ. КАМЕРА. ЭМОЦИИ.</div>
+        <h2 data-i18n="bannerTitle">Ваша история<br>начинается в кино.</h2>
+      </div>
+      <a href="#sessions" class="button button-primary" data-i18n="reserveSeat">Забронировать место ↗</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#home"><span>✦</span> CINEMA</a>
+    <p data-i18n="copyright">© 2026 CINEMA. Демонстрационный проект.</p>
+    <a href="#home" data-i18n="top">Наверх ↑</a>
+  </footer>
+
+  <dialog class="confirmation-modal" id="confirmationModal">
+    <button class="modal-close" id="closeModal" aria-label="Закрыть">×</button>
+    <div class="modal-symbol">✓</div>
+    <div class="eyebrow" data-i18n="orderCreated">ЗАКАЗ СОЗДАН</div>
+    <h2 data-i18n="greatChoice">Отличный выбор!</h2>
+    <p class="modal-description" data-i18n="orderFormed">Ваш демонстрационный заказ сформирован.</p>
+    <div class="receipt" id="receipt"></div>
+    <p class="modal-note" data-i18n="modalNote">
+      Это учебный макет. Билеты не являются действительными, а реальная оплата не производится.
+    </p>
+    <button class="button button-primary modal-button" id="finishModal" data-i18n="great">Отлично!</button>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
